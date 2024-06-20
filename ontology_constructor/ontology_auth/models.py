@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.db import models
 
 # Create your models here.
@@ -25,3 +26,8 @@ class rdf_type(models.Model):
 
     def __str__(self):
         return self.uri
+=======
+from django.db import models
+
+# Create your models here.
+>>>>>>> 3959197b9392de9167a19270e55166effc7736b7
