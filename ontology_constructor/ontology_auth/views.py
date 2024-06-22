@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+import os
+def index(request):
+    template  = render_to_string("ontology_auth/index.html")
+    return HttpResponse(template)
 
-# Create your views here.
-=======
-from django.shortcuts import render
-
-# Create your views here.
->>>>>>> 3959197b9392de9167a19270e55166effc7736b7
