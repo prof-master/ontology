@@ -17,5 +17,8 @@ def profile(request):
     template  = render_to_string("ontology_auth/profile.html")
     return HttpResponse(template)
 
+def constructor(request):
+    template  = render_to_string("ontology_auth/constructor.html")
+    return HttpResponse(template)
 
 # Create your views here.
