@@ -22,10 +22,8 @@ class Object(models.Model):
     def __str__(self):
         return self.uri
 class rdf_type(models.Model):
-<<<<<<< HEAD
     name=models.CharField(max_length=100)
     uri=models.CharField(max_length=100)
-=======
     subject=models.ForeignKey(
         Subject,
         related_name='subject',
