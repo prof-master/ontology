@@ -24,32 +24,37 @@
 <body>
 
 
-    <div class="d-flex flex-column justify-content-center align-items-center center_content p-6">
-
-        <div class="d-flex flex-row justify-content-center align-content-center">
+    <div class="d-flex flex-column justify-content-center align-items-center center_content p-4" style="gap: 72px;">
+        <!-- УБРАТЬ АТРИБУТ STYLE -->
+        <div class="d-flex flex-row justify-content-center align-content-center" style="gap: 12px;">
+            <!-- УБРАТЬ АТРИБУТ STYLE -->
+            <a class="p-2 text-decoration-none text-reset" href="{% url 'profile'%}">
+                <p class="link_wrapper_content inter-font">Личный кабинет</p>
+            </a>
             <a class="p-2 text-decoration-none text-reset" href="{% url 'auth'%}">
                 <p class="link_wrapper_content  font-change inter-font">Каталог онтологий</p>
             </a>
             <a class="p-2 text-decoration-none text-reset" href="">
                 <p class="link_wrapper_content  inter-font">Мои онтологии</p>
             </a>
-            <a class="p-2 text-decoration-none text-reset" href="">
-                <p class="link_wrapper_content inter-font">Личный кабинет</p>
-            </a>
         </div>
 
+        <div class="name_wrapper">
 
-        <div class="title_weapper inter-fz fs-1">
-            <p>Конструктор онтологий</p>
+            <div class="title_weapper inter-fz fs-1">
+                <p>Конструктор онтологий</p>
+            </div>
+
+            <div class="site_descriptio g-color">
+                <p class="fs-36">Начни работать с онтологиями прямо сейчас</p>
+            </div>
         </div>
 
-        <div class="site_descriptio">
-            <p>Начни работать с онтологиями прямо сейчас</p>
-        </div>
-        <div class="ipt_btn_wrapper d-flex flex-row justify-content-center">
+        <div class="ipt_btn_wrapper d-flex flex-row justify-content-center" style="gap: 8px;">
 
             <div class="ipt_wrapper h-auto">
-                <input class="h-100 ipt_plc" type="email" name="ipt_email" id="sha384-EVSTQN3" placeholder="example@example.com">
+                <input class="h-100 ipt_plc" type="email" name="ipt_email" id="sha384-EVSTQN3"
+                    placeholder="Email adress">
             </div>
             <div class="btn_wrappr">
                 <button>Начать</button>
@@ -57,13 +62,7 @@
 
         </div>
 
-
-
-
-
-
-
-        <div class="copyright">UTMN.SU</div>
+        <div class="copyright">Московский государственный технический университет им. Н.Э. Баумана 2024</div>
 
     </div>
 </body>

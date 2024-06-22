@@ -18,6 +18,4 @@ def profile(request):
     return HttpResponse(template)
 
 
-
-
 # Create your views here.

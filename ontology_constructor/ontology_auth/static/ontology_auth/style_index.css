@@ -17,6 +17,7 @@
 .btn_wrappr>button {
     background-color: black;
     border-radius: 8px;
+    border: black solid;
     width: 124px;
     height: 62px;
     color: white;
@@ -28,6 +29,8 @@
 .ipt_wrapper>input {
     width: 467px;
     color: gray;
+    border-radius: 8px;
+    border: #E0E0E0 solid 1px;
 }
 
 
@@ -38,16 +41,27 @@
 }
 
 .pd-64 {
-    padding-top: 64px;
+    padding-top: 32px;
+}
+
+.fs-36
+{
+    font-size: 24px;
 }
 
 input[type="email"]::-webkit-input-placeholder {
     text-align: center;
     color: gray;
+    font: 18px;
 }
 input[type="email"]::-moz-placeholder {
     text-align: center;
     color: gray;
+}
+
+
+.g-color{
+    color: #828282;
 }
 
 
