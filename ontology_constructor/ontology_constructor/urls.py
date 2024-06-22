@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from ontology_auth.views import index
+from ontology_auth.views import index,auth
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',index,name='index')
+    path('',index,name='index'),
+    path('auth/',auth,name='auth')
    
 ]
