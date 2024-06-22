@@ -13,7 +13,7 @@ class Ontology(models.Model):
         choices=ACCESS_CHOICES,
         default='Global',
         )
-    craeted_at=models.DateTimeField(default=timezone.now)
+    created_at = models.DateTimeField(default=timezone.now)
     owner=models.ForeignKey(
         User,
         related_name='ontology',
@@ -29,16 +29,12 @@ class Ontology(models.Model):
 class Subject(models.Model):
     name=models.CharField(max_length=100)
     uri=models.CharField(max_length=100)
-    name=models.CharField(max_length=100)
-    uri=models.CharField(max_length=100)
     description=models.TextField()
     created_at=models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.uri
 class Object(models.Model):
-    name=models.CharField(max_length=100)
-    uri=models.CharField(max_length=100)
     name=models.CharField(max_length=100)
     uri=models.CharField(max_length=100)
     description=models.TextField()
@@ -51,6 +47,24 @@ class rdf_type(models.Model):
     uri=models.CharField(max_length=100)
     description=models.TextField()
     created_at=models.DateTimeField(default=timezone.now)
-
+    ontology=models.ForeignKey(
+        Ontology,
+        related_name='ontology',
+        on_delete=models.CASCADE
+        )
+    subject=models.ForeignKey(
+        Subject,
+        related_name='ontology',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
+        )
+    object=models.ForeignKey(
+        Object,
+        related_name='ontology',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
+        )
     def __str__(self):
         return self.uri
