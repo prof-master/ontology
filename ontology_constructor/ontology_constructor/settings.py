@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ontology_auth'
+    'ontology_auth.apps.OntologyAuthConfig'
 ]
 
 MIDDLEWARE = [
