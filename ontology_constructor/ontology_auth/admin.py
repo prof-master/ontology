@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Object, Subject ,rdf_type
+from .models import Object, Subject ,rdf_type, Ontology
 # Register your models here.
 
 
@@ -21,7 +21,7 @@ class ObjectAdmin(admin.ModelAdmin):
 
 admin.site.register(Subject)
 admin.site.register(rdf_type)
-
+admin.site.register(Ontology)
 
 # Register your models here.
 
