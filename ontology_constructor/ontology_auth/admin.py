@@ -1,9 +1,27 @@
-<<<<<<< HEAD
 from django.contrib import admin
+from .models import Object, Subject ,rdf_type
+# Register your models here.
+
+
+
+
+
+
+
+
+@admin.register(Object)
+class ObjectAdmin(admin.ModelAdmin):
+    pass
+
+
+
+
+
+
+
+admin.site.register(Subject)
+admin.site.register(rdf_type)
+
 
 # Register your models here.
-=======
-from django.contrib import admin
 
-# Register your models here.
->>>>>>> 3959197b9392de9167a19270e55166effc7736b7
