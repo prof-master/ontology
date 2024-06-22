@@ -13,6 +13,10 @@ def auth(request):
     template  = render_to_string("ontology_auth/auth.html")
     return HttpResponse(template)
 
+def profile(request):
+    template  = render_to_string("ontology_auth/profile.html")
+    return HttpResponse(template)
+
 
 
 
