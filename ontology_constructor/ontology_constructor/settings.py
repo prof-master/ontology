@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
+    'ontology_auth'
+=======
     'ontology_auth.apps.OntologyAuthConfig',
+>>>>>>> d84fc231c4ab9c5f43e7945b1be574f564a7b5da
 ]
 
 MIDDLEWARE = [
@@ -51,11 +55,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ontology_constructor.urls'
-
+import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'ontology_constructor', 'templates', 'ontology_auth')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
