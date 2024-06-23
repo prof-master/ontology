@@ -31,6 +31,8 @@
     color: gray;
     border-radius: 8px;
     border: #E0E0E0 solid 1px;
+    padding-left: 10px;
+    
 }
 
 
@@ -49,15 +51,15 @@
     font-size: 24px;
 }
 
-input[type="email"]::-webkit-input-placeholder {
-    text-align: center;
+/* input[type="email"]::-webkit-input-placeholder {
+    
     color: gray;
     font: 18px;
 }
 input[type="email"]::-moz-placeholder {
     text-align: center;
     color: gray;
-}
+} */
 
 
 .g-color{
