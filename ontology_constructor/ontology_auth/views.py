@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from .forms import OntologyForm
@@ -25,8 +25,26 @@ def constructor(request):
 def add_ontology(request):
     if request.method == 'POST':
         form = OntologyForm(request.POST)
-        #product = ShoppingItem(name=product.name, list=shopping_list, price=product.price, product=product)
-        product.save()
-        return HttpResponse('updated')
-    
+        if form.is_valid():
+            form.save('ontology')
+            template  = render_to_string("ontology_auth/constructor.html")
+            return HttpResponse(template)
+    else:
+        form=OntologyForm()
+        #template  = render_to_string("ontology_auth/add_ontology.html")
+        return render(request, 'ontology_auth/add_ontology.html', {'form': form})
+
+def add_subject(request):
+    if request.method == 'POST':
+        form = SubjectForm(request.POST)
+        if form.is_valid():
+            form.save('subject')
+            template  = render_to_string("ontology_auth/constructor.html")
+            return HttpResponse(template)
+    else:
+        form=SubjectForm()
+        #template  = render_to_string("ontology_auth/add_ontology.html")
+        return render(request, 'ontology_auth/constructor.html', {'form': form_sub})
+
+
 # Create your views here.

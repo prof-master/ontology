@@ -1,5 +1,5 @@
 function create_subject() { 
-    let element = document.getElementById("create_subject_name");
+    let element = document.getElementById("create_subject");
     let element1 = document.getElementById("create_subject_descr");
     let element2 = document.getElementById("create_subject_title");
     element2.style.display = 'block';

@@ -35,35 +35,20 @@
         </div>
     </div>
         <!-- Перенести создание субъекта влево -->
-    <div class="d-flex flex-column justify-content-center align-items-center center_content " style="gap: 0px;">
-     
-        <div class="ipt_btn_wrapper d-flex flex-row justify-content-left" style="gap: 110px;">
+    {% block content %}
+
+        <form method="POST">
             <div class="name_wrapper">
-                <div id="create_subject_title" class="title_weapper inter-fz fs-4" style="display: none;">
+                <div class="title_weapper inter-fz fs-2" style="margin-left:20px;" >
                     <p>Создание субъекта</p>
                 </div>
             </div>
-        </div>
-
-        <div  class="d-flex flex-column justify-content-start name_disp_wrapper" style="width: 100%;gap: 10px;">
-
-            <div class="d-flex flex-row" style="gap: 10px;width: 100%;">
-                <div class="name_wrapper" style="width: 100%;">
-                    <div id="create_subject_name" class="disp_wrapper" style="width: 100%; display: none;">
-                        <p>Наименование</p>
-                        <input class="text-field__input"></input>
-                    </div>
-                </div>
-            </div>
-
-            <div class="d-flex flex-row" style="gap: 8px; width: 100%;">
-                <div id="create_subject_descr" class="disp_wrapper" style="width: 100%; display: none;">
-                    <p>Описание</p>
-                    <textarea name="someName" id="someID" style="width: 100%; height: 250px;resize: none;"></textarea>
-                </div>
-            </div>
-        </div>
-    </div>
+            {% csrf_token %}
+            {{form_sub}}
+            <button class="btn_wrappr" type="submit" style="margin-left:20px;" gap="20px">Сохранить</button>
+        </form>
+    {% endblock %}
+    
     <div class="d-flex flex-column justify-content-center align-items-center center_content " style="gap: 10px;">
      
         <div class="ipt_btn_wrapper d-flex flex-row justify-content-left" style="gap: 110px;">

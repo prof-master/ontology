@@ -7,19 +7,21 @@ class Ontology(models.Model):
         ('Global', 'Общедоступная'),
         ('Private', 'Приватная'),
         ]
-    name=models.CharField(max_length=100)
+    name=models.CharField(max_length=100, verbose_name=('Наименование онтологии'))
     access=models.CharField(
         max_length=50,
         choices=ACCESS_CHOICES,
         default='Global',
+        verbose_name=('Доступность')
         )
-    created_at = models.DateTimeField(default=timezone.now)
+    created_at = models.DateTimeField(default=timezone.now, verbose_name=('Дата создания'))
     owner=models.ForeignKey(
         User,
         related_name='ontology',
         on_delete=models.SET_NULL,
         null=True,
-        blank=True
+        blank=True,
+        verbose_name=('Владелец')
         )
     
 
