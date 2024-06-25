@@ -21,3 +21,23 @@ class SubjectForm(ModelForm):
         self.fields['name'].widget.attrs.update({'class': '.ipt_wrapper', "size": "80", "required": True})
         self.fields['description'].widget.attrs.update({"size": "80", "width": "40", "required": True})
         #self.fields['name'].widget.attrs.update("size": "40")
+        
+class ObjectForm(ModelForm):
+    class Meta:
+        model = Object
+        fields = ['name', 'description']
+    def __init__(self, *args, **kwargs):
+        super(ObjectForm, self).__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs.update({'class': '.ipt_wrapper', "size": "80", "required": True})
+        self.fields['description'].widget.attrs.update({"size": "80", "width": "40", "required": True})
+        #self.fields['name'].widget.attrs.update("size": "40")
+        
+class rdf_typeForm(ModelForm):
+    class Meta:
+        model = rdf_type
+        fields = ['name', 'description', 'object', 'subject', 'ontology']
+    def __init__(self, *args, **kwargs):
+        super(rdf_typeForm, self).__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs.update({'class': '.ipt_wrapper', "size": "80", "required": True})
+        self.fields['description'].widget.attrs.update({"size": "200", "width": "80", "required": True})
+        #self.fields['name'].widget.attrs.update("size": "40")

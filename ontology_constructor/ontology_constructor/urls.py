@@ -16,14 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from ontology_auth.views import index,auth,profile, constructor, add_ontology
+from ontology_auth.views import index,auth,profile, constructor, add_ontology, ontology_list_1, ontology_detail, add_subject, add_object, add_rdf_type
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index,name='index'),
     path('auth/',auth,name='auth'),
     path('profile/',profile,name='profile'),
     path('constructor/',constructor,name='constructor'),
-    path('ontology/new', add_ontology, name='add_ontology'),
+    path('ontology/list/',ontology_list_1,name='ontology_list_1'),
+    path('ontology/<int:ontology_id>/',ontology_detail,name='ontology_detail'),
+    path('ontology/new/', add_ontology, name='add_ontology'),
+    path('ontology/new/subject/', add_subject, name='add_subject'),
+    path('ontology/new/object/', add_object, name='add_object'),
+    path('ontology/new/predicat/', add_rdf_type, name='add_rdf_type'),
     path('accounts/', include('django.contrib.auth.urls')),
         
 ]
