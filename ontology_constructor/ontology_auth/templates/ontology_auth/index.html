@@ -58,7 +58,7 @@
                 <a class="btn_wrappr" href="
                 
                 {% if request.user.is_authenticated %}
-                    {% url 'ontology_list_1'%}
+                    {% url 'profile'%}
                 {% else %}
                     {% url 'register'%}
                 {% endif %}
