@@ -9,14 +9,16 @@
 
 <body>
     <H1>Мои онтологии</H1>
-    <p>alya</p>
-    <p>bazik@mail.ru</p>
-    Сука бляьб
-    {{request.user}}
-
 
     <div class="side_menu_wrapper d-flex flex-column w-25 gap-5
     ">
+
+{% if request.user.is_authenticated %}
+<H1>Добро пожаловать</H1> 
+    <H1>{{request.user}}</H1>
+{% else %}
+    <h1>Войдите сударь</h1> <a href="{% url 'auth' %}">Войти</a>
+{% endif %}
 
 
         <a href="">
@@ -31,16 +33,16 @@
         <a href="">
             <p>Создать онтологию</p>
         </a>
-
+        <hr>
         {% if request.user.is_authenticated %}
-        AUTHED - USER NAME
+        <a href="{% url 'logout' %}">Выйти</a>
         {% else %}
-        GUEST
+        <a href="{% url 'auth' %}">Войти</a>
         {% endif %}
 
 
 
-    
+
 
 
         <p>МГТУ ИМ Н.Э. Баумана</p>
