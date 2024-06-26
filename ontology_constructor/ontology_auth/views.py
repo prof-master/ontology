@@ -21,7 +21,8 @@ def test_menu(request):
 
 
 def auth(request):
-
+    # print(request.user)
+    # print(request)
     if request.POST:
         username = request.POST["username"]
         password = request.POST["password"]
@@ -35,7 +36,7 @@ def auth(request):
 def profile(request):
     print(request.user)
     template  = render_to_string("ontology_auth/profile.html")
-    return HttpResponse(template)
+    return render(request,"ontology_auth/profile.html", {'user': request.user})
 
 def constructor(request):
     template  = render_to_string("ontology_auth/constructor.html")
@@ -115,9 +116,9 @@ def register(request):
         return render(request, 'ontology_auth/register.html', {'form': form_m})
 
 
-def logout(request):
-    template  = render_to_string("registration/logged_out.html")
-    return HttpResponse(template)
+def logout_func(request):
+    logout(request)
+    return redirect("auth")
 
 # @login_required
 # def profile(request):

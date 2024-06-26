@@ -17,11 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 # from users import views as user_views
-from ontology_auth.views import index,auth,profile, constructor, add_ontology, ontology_list_1, ontology_detail, add_subject, add_object, add_rdf_type, register,test_menu,logout 
+from ontology_auth.views import index,auth,profile, constructor, add_ontology, ontology_list_1, ontology_detail, add_subject, add_object, add_rdf_type, register,test_menu,logout_func
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index,name='index'),
     path('auth/',auth,name='auth'),
+
+
+
     path('profile/',profile,name='profile'),
     path('constructor/',constructor,name='constructor'),
     path('ontology/list/',ontology_list_1,name='ontology_list_1'),
@@ -30,10 +33,12 @@ urlpatterns = [
     path('ontology/new/subject/', add_subject, name='add_subject'),
     path('ontology/new/object/', add_object, name='add_object'),
     path('ontology/new/predicat/', add_rdf_type, name='add_rdf_type'),
-    path('accounts/', include('django.contrib.auth.urls')),
-    # path('register/', register, name='register'),
+
+
+    # path('accounts/', include('django.contrib.auth.urls')),
+    path('register/', register, name='register'),
     path('menu/', test_menu, name='test_menu'),
-    # path('logout/', logout, name='logout'),
+    path('logout/', logout_func, name='logout'),
 
     
 
