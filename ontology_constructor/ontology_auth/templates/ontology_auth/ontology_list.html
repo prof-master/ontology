@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="name_wrapper">
-        <div class="title_weapper inter-fz fs-2" style="margin-left:20px;" >
+        <div class="title_weapper inter-fz fs-2" style="margin-left:20px; text-align: center" >
             <p>Список онтологий</p>
         </div>
     </div>
@@ -34,11 +34,17 @@
 	</thead>
 {% for ontology in ontologys %}
         <div class="inter-fz" gap="20px">
-            <tr onclick="window.location.href='/ontology/{{ ontology.id }}'; return false">
-                <td class="inter-fz-1" >{{ontology.name}}</td>
-                <td class="inter-fz-1">{{ontology.access}}</td>
-                <td class="inter-fz-1">{{ontology.created_at}}</td>
-                <td class="inter-fz-1">{{ontology.owner}}</td>
+            <tr >
+                <td class="inter-fz-1" onclick="window.location.href='/ontology/{{ ontology.id }}'; return false">{{ontology.name}}</td>
+                <td class="inter-fz-1" onclick="window.location.href='/ontology/{{ ontology.id }}'; return false">{{ontology.access}}</td>
+                <td class="inter-fz-1" onclick="window.location.href='/ontology/{{ ontology.id }}'; return false">{{ontology.created_at}}</td>
+                <td class="inter-fz-1" onclick="window.location.href='/ontology/{{ ontology.id }}'; return false">{{ontology.owner}}</td>
+                <td>
+                <form action="" method="get">
+                    <script src="{% static 'ontology_auth/ontology_list.js' %}"></script>
+                    <button class = "btn_wrappr_1 inter-fz-1" name="delete_ontology" value="{{ ontology.id }}">Удалить</button>
+                </form>
+                </td>
             </tr>
         </div>
     {% empty %}
