@@ -42,11 +42,20 @@ def constructor(request):
     template  = render_to_string("ontology_auth/constructor.html")
     return HttpResponse(template)
 
-def ontology_list_1(request):
+def ontology_list_1(request, ontology_id=None):
     ontologys= Ontology.objects.all()
     context= {'ontologys': ontologys}
+    if (request.GET.get('delete_ontology')):
+        Ontology.objects.filter(id = request.GET.get('delete_ontology')).delete()
+        return redirect('/ontology/list')
     return render(request, "ontology_auth/ontology_list.html", context)
+
+def delete_ontology(request, ontology_id=None):
+    object = Ontology.objects.get(id=ontology_id)
+    object.delete()
+    return redirect('/ontology/list')
     
+
 def ontology_detail(request, ontology_id):
     ontology_cur= get_object_or_404(Ontology, id=ontology_id)
     rdf_types=rdf_type.objects.filter(ontology=ontology_cur)

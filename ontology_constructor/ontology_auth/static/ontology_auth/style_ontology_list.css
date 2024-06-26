@@ -33,7 +33,7 @@
 	border: 1px solid #dddddd;
 	padding: 5px;
 }
-tbody tr:hover {
+tbody td:hover {
     background: #828282; /* Цвет фона при наведении */
     color: #fff; /* Цвет текста при наведении */
    }
