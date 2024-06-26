@@ -57,11 +57,7 @@
             <div class="btn_wrappr">
                 <a class="btn_wrappr" href="
                 
-                {% if request.user.is_authenticated %}
-                    {% url 'profile'%}
-                {% else %}
-                    {% url 'register'%}
-                {% endif %}
+                
                 
                 "><button>Начать</button></a>
             </div>
