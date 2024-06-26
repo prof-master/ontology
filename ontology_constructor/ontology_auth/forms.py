@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from .models import Object, Subject ,rdf_type, Ontology
+from django.contrib.auth.models import User
 
 class OntologyForm(ModelForm):
     class Meta:
@@ -41,3 +42,29 @@ class rdf_typeForm(ModelForm):
         self.fields['name'].widget.attrs.update({'class': '.ipt_wrapper', "size": "80", "required": True})
         self.fields['description'].widget.attrs.update({"size": "200", "width": "80", "required": True})
         #self.fields['name'].widget.attrs.update("size": "40")
+
+
+
+
+from django.contrib.auth.forms import UserCreationForm
+
+class UserRegForm(UserCreationForm):
+    email = forms.EmailField()
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1']
+    def __init__(self, *args, **kwargs):
+        super(UserRegForm, self).__init__(*args, **kwargs)
+        del self.fields['password2']
+        self.fields['password1'].help_text = None
+        self.fields['username'].help_text = None
+
+
+
+
+# class UserRegisterForm(UserCreationForm):
+#     email = forms.EmailField()
+
+#     class Meta:
+#         model = User
+#         fields = ['username', 'email', 'password1', 'password2']

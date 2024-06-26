@@ -18,14 +18,17 @@
         <div class="create_account">
             Создать аккаунт
         </div>
+        <form method="POST" action="{%url 'auth'%}">
+            {% csrf_token %}
 
-        <div class="auth_wrapper d-flex flex-column gap-3">
+            <div class="auth_wrapper d-flex flex-column gap-3">
 
-            <input type="text" placeholder="Имя пользователя">
-            <input type="text" placeholder="Пароль">
-            <input class="btn-auth" type="button" value="Войти">
+                <input  name="username"   type="text" placeholder="Имя пользователя">
+                <input name="password" type="password" placeholder="Пароль">
+                <button type="submit">Login</button>
 
-        </div>
+            </div>
+        </form>
 
     </div>
 

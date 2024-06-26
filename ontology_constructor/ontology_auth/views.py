@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-from .forms import OntologyForm, SubjectForm, ObjectForm, rdf_typeForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .forms import OntologyForm, SubjectForm, ObjectForm, rdf_typeForm, UserRegForm
 from .models import Ontology, Subject, Object, rdf_type
 import os
+from django.contrib.auth import authenticate, login , logout
 
 
 
@@ -11,11 +14,26 @@ def index(request):
     template  = render_to_string("ontology_auth/index.html")
     return HttpResponse(template)
 
-def auth(request):
-    template  = render_to_string("ontology_auth/auth.html")
+def test_menu(request):
+    template  = render_to_string("ontology_auth/menu.html")
+    print(request)
     return HttpResponse(template)
 
+
+def auth(request):
+
+    if request.POST:
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return(redirect("profile"))
+    return render(request,"ontology_auth/auth.html")
+   
+
 def profile(request):
+    print(request.user)
     template  = render_to_string("ontology_auth/profile.html")
     return HttpResponse(template)
 
@@ -77,4 +95,30 @@ def add_rdf_type(request):
     else:
         form_sub=rdf_typeForm()
         return render(request, 'ontology_auth/add_rdf_type.html', {'form': form_sub})
-# Create your views here.
+
+
+
+
+# Добавить сообщение о успещной регристрации ползователя.
+def register(request):
+    if request.method == 'POST':
+        form_m = UserRegForm(request.POST)
+        if form_m.is_valid():
+            form_m.save('registration')
+            username = form_m.cleaned_data.get('username')
+            messages.success(request, f'Создан аккаунт {username}!')
+            return redirect('profile')
+        else:
+            messages.success(request, f'Создан аккаунт {username}!')
+    else:
+        form_m = UserRegForm()
+        return render(request, 'ontology_auth/register.html', {'form': form_m})
+
+
+def logout(request):
+    template  = render_to_string("registration/logged_out.html")
+    return HttpResponse(template)
+
+# @login_required
+# def profile(request):
+#     return render(request, 'ontology_auth/profile.html')

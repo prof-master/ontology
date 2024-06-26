@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <H1>Мои онтологии</H1>
+    <p>{{user.username}}</p>
+    <p>{{user.email}}</p>
+
+
+    <div class="side_menu_wrapper d-flex flex-column w-25 gap-5
+    ">
+
+
+        <a href="">
+            <p>Каталог онтологий</p>
+        </a>
+        <a href="">
+            <p>Мои онтологии</p>
+        </a>
+        <a href="">
+            <p>Личный кабинет</p>
+        </a>
+        <a href="">
+            <p>Создать онтологию</p>
+        </a>
+
+        {% if request.user.is_authenticated %}
+        AUTHED - USER NAME
+        {% else %}
+        GUEST
+        {% endif %}
+
+
+
     
+
+
+        <p>МГТУ ИМ Н.Э. Баумана</p>
+
+
+    </div>
+
+
+    <!-- <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">выйти</button>
+    </form> -->
 </body>
+
 </html>
